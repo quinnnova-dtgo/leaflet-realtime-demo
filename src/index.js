@@ -23,9 +23,10 @@ realtime.on('update', function (elem) {
   var popupContent = function (featureId) {
     var feature = elem.features[featureId];
 
-    console.log(feature.properties.temp);
+    const temperature = parseFloat(feature.properties.temp);
+    console.log(temperature);
 
-    return '<h3>' + feature.properties.temp + '°C</h3>';
+    return `<h3>${temperature ? temperature.toFixed(2) : 'N/A'}°C</h3>`;
   };
 
   var bindFeaturePopup = function (featureId) {
