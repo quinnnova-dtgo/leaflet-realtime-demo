@@ -64,9 +64,10 @@ function get_realtime() {
     }, {
     interval: 60 * 1000,
     onEachFeature(feature, l) {
-      console.log(l);
+      const temperature = parseFloat(feature.properties.temp);
+
       l.bindPopup(function () {
-        return '<h3>' + feature.properties.temp + '°C</h3>';
+        return `<h3>${temperature ? temperature : 'N/A'}°C</h3>`;
       });
     }
   });
