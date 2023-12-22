@@ -67,7 +67,7 @@ function get_realtime() {
       const temperature = parseFloat(feature.properties.temp);
 
       l.bindPopup(function () {
-        return `<h3>${temperature ? temperature : 'N/A'}°C</h3>`;
+        return `<h3>${temperature ? temperature.toFixed(2) : 'N/A'}°C</h3>`;
       });
     }
   });
